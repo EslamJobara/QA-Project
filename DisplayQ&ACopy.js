@@ -3,18 +3,7 @@ let currentIndex = 0;
 let nextBtn = document.getElementById("nxt-btn");
 let prevBtn = document.getElementById("Prev-btn");
 
-let examData = {};
 
-fetch("/questions.json")
-  .then((data) => {
-    //   console.log(data);
-   return data.json();
-  })
-  .then((data) => {
-      console.log(data);
-    examData = data;
-  });
-console.log(examData);
 
 // function showQuestion(index) {
 //   questions.innerHTML = "";
