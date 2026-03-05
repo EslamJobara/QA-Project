@@ -190,3 +190,23 @@ prevBtn.addEventListener("click", () => {
     updateActiveBox();
   }
 });
+
+let duration = 2 * 60;
+
+let timer = document.getElementById("timer");
+
+let countdown = setInterval(() => {
+  let minutes = Math.floor(duration / 60);
+  let seconds = duration % 60;
+
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  timer.textContent = `${minutes}:${seconds}`;
+
+  if (duration <= 0) {
+    clearInterval(countdown);
+    timer.textContent = "Time's up!";
+  }
+
+  duration--;
+}, 1000);
