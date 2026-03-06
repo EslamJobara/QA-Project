@@ -14,10 +14,7 @@ body {
   overflow: hidden;
   color: #fff;
 }
-#timer {
-  margin-bottom: 15px;
-  color: rgb(56, 202, 210);
-}
+
 #timerCanvas {
   background: transparent;
 }

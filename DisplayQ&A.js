@@ -185,7 +185,7 @@ timerCanvas.height = 150;
 timerCanvas.style.position = "fixed";
 timerCanvas.style.top = "25px";
 timerCanvas.style.left = "25px";
-timerCanvas.style.zIndex = "100";
+timerCanvas.style.zIndex = "10";
 document.body.appendChild(timerCanvas);
 
 const ctx = timerCanvas.getContext("2d");
@@ -232,8 +232,12 @@ function drawCircularTimer() {
 
   let color = "#00ff00";
   let text_color = "rgb(56, 202, 210)";
+  if (remainingSeconds <= 60) {
+    color = "#ffaa00";
+    text_color = "#ffaa00";
+  }
 
-  if (remainingSeconds <= 50) {
+  if (remainingSeconds <= 30) {
     color = "#ff3b3b";
     text_color = "#ff3b3b";
   }
@@ -248,7 +252,7 @@ function drawCircularTimer() {
   seconds = seconds < 10 ? "0" + seconds : seconds;
   let fontSize = 18;
 
-  if (remainingSeconds <= 60) {
+  if (remainingSeconds <= 30) {
     fontSize = 18 + Math.sin(Date.now() / 280) * 6;
   }
   ctx.font = `${fontSize}px Arial`;

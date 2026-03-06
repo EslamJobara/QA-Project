@@ -25,15 +25,26 @@ fetch("/questions.json")
         ansDiv.className = "answer";
         ansDiv.textContent = ans;
 
-        if (ans === q.rightanswer) ansDiv.classList.add("correct");
+        if (ans === q.rightanswer) {
+          ansDiv.classList.add("correct");
+        }
+
         if (finalAnswers[i] === ans) {
           ansDiv.classList.add("user");
-          if (ans !== q.rightanswer) ansDiv.classList.add("wrong");
-          if (ans === q.rightanswer) score++;
+
+          if (ans !== q.rightanswer) {
+            ansDiv.classList.add("wrong");
+          }
         }
 
         questionDiv.appendChild(ansDiv);
       });
+
+      if (finalAnswers[i] === q.rightanswer) {
+        score++;
+      } else {
+        title.style.color = "#ff3b3b";
+      }
 
       container.appendChild(questionDiv);
     });
