@@ -3,24 +3,28 @@ const namePattern = /^[a-zA-Z]+$/;
 
 function validateRegister(firstName, lastName, email, password, rePassword) {
   if (!emailPattern.test(email)) {
-    console.log(!emailPattern.test(email));
     console.log("You must enter a valid email");
+    alert("You must enter a valid email");
     return false;
   }
   if (!namePattern.test(firstName)) {
-    console.log("You must enter a valid name");
+    console.log("You must enter a valid first name");
+    alert("First name must contain only letters");
     return false;
   }
   if (!namePattern.test(lastName)) {
-    console.log("You must enter a valid name");
+    console.log("You must enter a valid last name");
+    alert("Last name must contain only letters");
     return false;
   }
-  if (password || rePassword == false) {
-    console.log("You must enter a valid password");
+  if (!password || !rePassword) {
+    console.log("Password fields cannot be empty");
+    alert("Password fields cannot be empty");
     return false;
   }
   if (password !== rePassword) {
-    console.log("You must enter the same password");
+    console.log("Passwords do not match");
+    alert("Passwords do not match!");
     return false;
   }
   return true;
