@@ -7,17 +7,28 @@ let submitBtn = document.getElementById("submit-btn");
 
 let examData = {};
 
+let currentSubject = localStorage.getItem("currentSubject");
+
 let answers =
   JSON.parse(localStorage.getItem(`answersOf${currentSubject}`)) || {};
 let markedQuestions =
   JSON.parse(localStorage.getItem(`markedOf${currentSubject}`)) || [];
 let isExamFinished =
   localStorage.getItem(`isExamFinishedOf${currentSubject}`) === "true";
-let numberOfQuestions;
 
 fetch("../questions.json")
   .then((data) => data.json())
   .then((data) => {
+    if (!localStorage.getItem("currentSubject")) {
+      const warning = document.getElementById("subjectWarning");
+      warning.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 2000);
+
+      return;
+    }
     examData = data;
     numberOfQuestions = examData[currentSubject].length;
 
@@ -44,7 +55,7 @@ function showQuestion(index) {
     let answerDiv = document.createElement("div");
     answerDiv.className = "answer";
 
-    answerDiv.innerHTML = answerDiv.innerHTML = `
+    answerDiv.innerHTML = `
 <label>
   <input type="radio" name="q${index}" value="${ans}">
   ${ans}

@@ -80,7 +80,7 @@ function drawCircularTimer() {
   ctx.textBaseline = "middle";
   ctx.fillText(`${minutes}:${seconds}`, centerX, centerY);
 
-  if (examFinished) {
+  if (isExamFinished) {
     timerCanvas.style.display = "none";
   }
 }

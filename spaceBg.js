@@ -25,7 +25,7 @@ function drawStars() {
     s.y += s.vy;
     s.x -= s.vy;
     if (s.y >= canvas.height) s.y = 0;
-    if (s.x < 0) s.x = canvas.width;
+    if (s.x <= 0) s.x = canvas.width;
     s.opacity += s.delta;
     if (s.opacity > 1 || s.opacity < 0) s.delta = -s.delta;
   });
