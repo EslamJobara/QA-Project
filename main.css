@@ -16,6 +16,7 @@ body {
 /* Theme Colors - الألوان الأساسية */
 :root {
   --primary-cyan: #0ff;
+  --shadow-cyan: rgba(0, 255, 255, 0.25);
   --primary-green: #00ff99;
   --bg-dark: #0d0d1a;
   --bg-card: #1e1e2fb0;
@@ -25,7 +26,9 @@ body {
 }
 
 /* Common Headings */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--primary-cyan);
 }
 
@@ -147,11 +150,21 @@ input:focus {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
