@@ -1,128 +1,268 @@
-
-
-let questions = document.getElementsByClassName("questions")[0];
+let questions = document.querySelector(".questions");
 let currentIndex = 0;
 let nextBtn = document.getElementById("nxt-btn");
 let prevBtn = document.getElementById("Prev-btn");
+let mrkBtn = document.getElementById("mrk-btn");
+let submitBtn = document.getElementById("submit-btn");
+
 let examData = {};
+let subject = "history";
+
+let answers = JSON.parse(localStorage.getItem("answers")) || {};
+let markedQuestions = JSON.parse(localStorage.getItem("marked")) || [];
+let examFinished = localStorage.getItem("examFinished") === "true";
+let totalQuestions;
 
 fetch("/questions.json")
+  .then((data) => data.json())
   .then((data) => {
-    //   console.log(data);
-    return data.json();
-  })
-  .then((data) => {
-    // console.log(data);
     examData = data;
-    
+    totalQuestions = examData[subject].length;
+
+    questionBoxes();
     showQuestion(currentIndex);
     updateActiveBox();
-    BoxEvents();
     updateButtons();
+    BoxEvents();
+    checkSubmit();
   });
-console.log(examData);
 
 function showQuestion(index) {
   questions.innerHTML = "";
-  let currentQuestion = examData.math[index];
+  let currentQuestion = examData[subject][index];
+
   let questionDiv = document.createElement("div");
   questionDiv.className = "questionHead";
 
   let title = document.createElement("h2");
-  title.textContent =
-    "Q." + (index + 1) + "  (" + currentQuestion.question + ") is ?";
+  title.textContent = `Q.${index + 1} (${currentQuestion.question})?`;
   questionDiv.appendChild(title);
 
-  currentQuestion.answers.forEach((ans, i) => {
+  currentQuestion.answers.forEach((ans) => {
     let answerDiv = document.createElement("div");
     answerDiv.className = "answer";
-    answerDiv.innerHTML = `
-      <input type="radio" name="q${index}" value="${ans}" />
-      ${ans}
-    `;
+
+    answerDiv.innerHTML = answerDiv.innerHTML = `
+<label>
+  <input type="radio" name="q${index}" value="${ans}">
+  ${ans}
+</label>
+`;
+
+    let input = answerDiv.querySelector("input");
+
+    if (answers[index] == ans) input.checked = true;
+
+    if (examFinished) {
+      input.disabled = true;
+    }
+    input.addEventListener("change", () => {
+      answers[index] = ans;
+      localStorage.setItem("answers", JSON.stringify(answers));
+
+      markedQuestions = markedQuestions.filter((q) => q != index);
+      localStorage.setItem("marked", JSON.stringify(markedQuestions));
+
+      updateActiveBox();
+      checkSubmit();
+    });
 
     questionDiv.appendChild(answerDiv);
   });
 
   questions.appendChild(questionDiv);
-  let qBoxesDiv = document.createElement("div");
-
-  qBoxesDiv.className = "question-boxes";
-  for (let i = 0; i < examData.math.length; i++) {
-    qBoxesDiv.innerHTML += `<div class="q-box">${i + 1}</div>`;
-  }
-  questions.appendChild(qBoxesDiv);
 }
 
+function questionBoxes() {
+  const qBoxesDiv = document.querySelector(".question-boxes");
+  qBoxesDiv.innerHTML = "";
+  for (let i = 0; i < totalQuestions; i++) {
+    let box = document.createElement("div");
+    box.className = "q-box";
+    box.textContent = i + 1;
+    qBoxesDiv.appendChild(box);
+  }
+}
 
 function updateActiveBox() {
-  let qbox = document.querySelectorAll(".q-box");
+  let boxes = document.querySelectorAll(".q-box");
 
-  qbox.forEach((box) => box.classList.remove("active"));
-  qbox[currentIndex].classList.add("active");
+  boxes.forEach((box, i) => {
+    box.classList.remove("active", "answered", "marked");
+
+    if (answers[i]) {
+      box.classList.add("answered");
+    }
+
+    if (markedQuestions.includes(i)) {
+      box.classList.add("marked");
+    }
+  });
+  boxes[currentIndex].classList.add("active");
 }
 
 function BoxEvents() {
-  let qBox = document.querySelectorAll(".q-box");
+  const container = document.querySelector(".question-boxes");
 
-  qBox.forEach((box, index) => {
-    box.addEventListener("click", () => {
-      currentIndex = index;
-      showQuestion(currentIndex);
-      BoxEvents();
-      updateButtons();
-      updateActiveBox();
-    });
+  container.addEventListener("click", (e) => {
+    const box = e.target.closest(".q-box");
+    if (!box) return;
+
+    const boxes = [...container.querySelectorAll(".q-box")];
+    currentIndex = boxes.indexOf(box);
+
+    showQuestion(currentIndex);
+    updateActiveBox();
+    updateButtons();
   });
 }
 
 function updateButtons() {
   prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === examData.math.length - 1;
-}
-
-nextBtn.addEventListener("click", () => {
-  if (currentIndex < examData.math.length - 1) {
-    currentIndex++;
-    showQuestion(currentIndex);
-    BoxEvents();
-    updateButtons();
-    updateActiveBox();
-  } else {
-    questions.innerHTML = `
-      <div style="border:1px dashed">
-        <h2>Quiz Finished</h2>
-      </div>
-    `;
+  nextBtn.disabled = currentIndex === totalQuestions - 1;
+  if (examFinished) {
+    mrkBtn.disabled = true;
   }
-});
+}
+function checkSubmit() {
+  const allAnswered = Object.keys(answers).length === totalQuestions;
+  if (!examFinished) {
+    submitBtn.disabled = !allAnswered;
+  }
+}
 
 prevBtn.addEventListener("click", () => {
   if (currentIndex > 0) {
     currentIndex--;
     showQuestion(currentIndex);
-    BoxEvents();
-    updateButtons();
     updateActiveBox();
+    updateButtons();
   }
 });
 
-let duration = 2 * 60;
+nextBtn.addEventListener("click", () => {
+  if (currentIndex < totalQuestions - 1) {
+    currentIndex++;
+    showQuestion(currentIndex);
+    updateActiveBox();
+    updateButtons();
+  }
+});
 
-let timer = document.getElementById("timer");
+mrkBtn.addEventListener("click", () => {
+  if (examFinished) return;
+  if (answers[currentIndex]) {
+    delete answers[currentIndex];
+    localStorage.setItem("answers", JSON.stringify(answers));
+  }
+  if (markedQuestions.includes(currentIndex)) {
+    markedQuestions = markedQuestions.filter((q) => q != currentIndex);
+  } else {
+    markedQuestions.push(currentIndex);
+  }
+  localStorage.setItem("marked", JSON.stringify(markedQuestions));
 
-let countdown = setInterval(() => {
-  let minutes = Math.floor(duration / 60);
-  let seconds = duration % 60;
+  updateActiveBox();
+  checkSubmit();
+});
 
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+function submitExam() {
+  document
+    .querySelectorAll("input[type=radio]")
+    .forEach((input) => (input.disabled = true));
+  localStorage.setItem("finalAnswers", JSON.stringify(answers));
+  localStorage.setItem("examFinished", "true");
+  localStorage.removeItem("examEndTime");
+  window.location.href = "answers.html";
+}
 
-  timer.textContent = `${minutes}:${seconds}`;
+submitBtn.addEventListener("click", submitExam);
 
-  if (duration <= 0) {
+const timerCanvas = document.createElement("canvas");
+timerCanvas.id = "timerCanvas";
+timerCanvas.width = 150;
+timerCanvas.height = 150;
+timerCanvas.style.position = "fixed";
+timerCanvas.style.top = "25px";
+timerCanvas.style.left = "25px";
+timerCanvas.style.zIndex = "10";
+document.body.appendChild(timerCanvas);
+
+const ctx = timerCanvas.getContext("2d");
+
+let examDuration = 2 * 60 * 1000;
+let endTime = localStorage.getItem("examEndTime");
+
+if (!endTime) {
+  endTime = Date.now() + examDuration;
+  localStorage.setItem("examEndTime", endTime);
+}
+
+function drawCircularTimer() {
+  let remaining = endTime - Date.now();
+
+  if (remaining <= 0) {
+    remaining = 0;
+    examFinished = true;
     clearInterval(countdown);
-    timer.textContent = "Time's up!";
+    submitExam();
   }
 
-  duration--;
-}, 1000);
+  const totalSeconds = examDuration / 1000;
+  const remainingSeconds = remaining / 1000;
+
+  const centerX = timerCanvas.width / 2;
+  const centerY = timerCanvas.height / 2;
+
+  let radius = 45;
+
+  ctx.clearRect(0, 0, timerCanvas.width, timerCanvas.height);
+
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = "rgba(0,0,0,0.3)";
+  ctx.fill();
+
+  const startAngle = -Math.PI / 2;
+  const endAngle =
+    startAngle +
+    2 * Math.PI * ((totalSeconds - remainingSeconds) / totalSeconds);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+
+  let color = "#00ff00";
+  let text_color = "rgb(56, 202, 210)";
+  if (remainingSeconds <= 60) {
+    color = "#efac01";
+    text_color = "#efac01";
+  }
+
+  if (remainingSeconds <= 30) {
+    color = "#ff0000";
+    text_color = "#ff0000";
+  }
+  ctx.fillStyle = text_color;
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 6;
+  ctx.stroke();
+
+  const minutes = Math.floor(remainingSeconds / 60);
+  let seconds = Math.floor(remainingSeconds % 60);
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  let fontSize = 18;
+
+  if (remainingSeconds <= 30) {
+    fontSize = 18 + Math.sin(Date.now() / 280) * 6;
+  }
+  ctx.font = `${fontSize}px Arial`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(`${minutes}:${seconds}`, centerX, centerY);
+
+  if (examFinished) {
+    timerCanvas.style.display = "none";
+  }
+}
+
+countdown = setInterval(drawCircularTimer, 1000);

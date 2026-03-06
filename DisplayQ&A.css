@@ -2,69 +2,131 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
   padding-top: 50px;
+  overflow: hidden;
+  color: #fff;
 }
 
+#timerCanvas {
+  background: transparent;
+}
 .quiz-container {
-  background-color: #fff;
+  position: relative;
+  background-color: #1e1e2fb0;
   padding: 20px 30px;
-  border-radius: 25px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 40%;
+  border-radius: 20px;
+  width: 45%;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-h2 {
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #0ff;
+  gap: 10px;
+}
+
+.questions h2 {
+  margin-bottom: 15px;
+  color: #0ff;
 }
 
 .answer {
-  background-color: #f3f3f3;
+  background-color: #222233b7;
   border-radius: 15px;
-  padding: 8px;
-  margin: 5px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.answer:hover {
+  background-color: #0ff;
+  color: #000;
+}
+
+.answer input[type="radio"] {
+  margin-right: 10px;
+}
+.answer label {
+  display: flex;
+  width: 100%;
+  padding: 12px;
 }
 
 .question-boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 20px;
+  margin: 20px 0;
+  gap: 10px;
 }
 
 .q-box {
-  width: 42px;
-  height: 33px;
+  width: 45px;
+  height: 35px;
   border: 1px solid #333;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.2s;
 }
 
-.q-box.active {
-  background-color: #4caf50;
-  color: white;
-  border: none;
+.active {
+  box-shadow: 0 0 10px 3px #0ff;
+}
+.marked {
+  background-color: #ffd000;
+  color: #000;
+}
+.answered {
+  background-color: #0ff;
+  color: #000;
+}
+.marked.active {
+  box-shadow: 0 0 10px 3px #ffd000;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 button {
-  padding: 8px 15px;
-  margin: 10px 5px 0 0;
+  padding: 10px 20px;
   border: none;
   border-radius: 15px;
-  background-color: #4caf50;
-  color: white;
   cursor: pointer;
+  background-color: #0ff;
+  color: black;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+#mrk-btn {
+  background-color: #ffd000;
+  color: black;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #555;
+  cursor: not-allowed;
+}
+#mrk-btn:disabled {
+  background-color: #555;
   cursor: not-allowed;
 }
