@@ -1,23 +1,18 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* DisplayQ&A Specific Styles */
 
+/* Override body for quiz page */
 body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
   padding-top: 50px;
   overflow: hidden;
-  color: #fff;
 }
 
 #timerCanvas {
   background: transparent;
 }
+
 .quiz-container {
   position: relative;
   background-color: #1e1e2fb0;
@@ -59,10 +54,12 @@ body {
 .answer input[type="radio"] {
   margin-right: 10px;
 }
+
 .answer label {
   display: flex;
   width: 100%;
   padding: 12px;
+  cursor: pointer;
 }
 
 .question-boxes {
@@ -88,14 +85,17 @@ body {
 .active {
   box-shadow: 0 0 10px 3px #0ff;
 }
+
 .marked {
   background-color: #ffd000;
   color: #000;
 }
+
 .answered {
   background-color: #0ff;
   color: #000;
 }
+
 .marked.active {
   box-shadow: 0 0 10px 3px #ffd000;
 }
@@ -106,15 +106,10 @@ body {
   gap: 10px;
 }
 
-button {
+/* Override button styles for quiz page */
+.btn button {
+  width: auto;
   padding: 10px 20px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: #0ff;
-  color: black;
-  font-weight: bold;
-  transition: all 0.2s;
 }
 
 #mrk-btn {
@@ -122,10 +117,6 @@ button {
   color: black;
 }
 
-button:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-}
 #mrk-btn:disabled {
   background-color: #555;
   cursor: not-allowed;

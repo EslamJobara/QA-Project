@@ -4,18 +4,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Home</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="spaceBg.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+  <!---------------------------------------->
+  <!--------------- canvas ----------------->
+  <!---------------------------------------->
+  <canvas id="space"></canvas>
+  
+  <!---------------------------------------->
+  <!--------------- navbar ----------------->
+  <!---------------------------------------->
   <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Login.html">Login</a></li>
-      <li><a href="Register.html">Register</a></li>
-      <li><a href="DisplayQ&A.html">DisplayQ</a></li>
-    </ul>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="exams/history.html">history</a>
+      <a href="exams/math.html">math</a>
+      <a href="exams/art.html">art</a>
+      <a href="ShowAllResults.html">Results</a>
+    </div>
+    <div class="nav-buttons">
+      <a href="auth/Login.html" class="btn-login">Login</a>
+      <a href="auth/Register.html" class="btn-register">Register</a>
+    </div>
   </nav>
+  <!---------------------------------------->
+  <!--------------- content ---------------->
+  <!---------------------------------------->
+  <div class="container">
+    <!-- Content will be added later -->
+  </div>
+  <!---------------------------------------->
+  <!-------------- js files ---------------->
+  <!---------------------------------------->
+  <script src="spaceBg.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>

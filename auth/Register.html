@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../spaceBg.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="Register.css">
+</head>
+
+<body>
+    <canvas id="space"></canvas>
+
+    <div class="container">
+        <h1>Register</h1>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="fName">First Name</label>
+            <input type="text" name="fName" id="fName" required>
+
+            <label for="lName">Last Name</label>
+            <input type="text" name="lName" id="lName" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="rePassword">Re-enter Password</label>
+            <input type="password" name="rePassword" id="rePassword" required>
+
+            <button type="submit" onclick="onRegister()">Register</button>
+        </form>
+        <p class="link-text">Already have an account? <a href="Login.html">Login here</a></p>
+    </div>
+
+    <script src="../spaceBg.js"></script>
+    <script src="Register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../spaceBg.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+    <canvas id="space"></canvas>
+
+
+
+    <div class="container">
+        <h1>Login</h1>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit" onclick="onLogin()">Login</button>
+        </form>
+        <p class="link-text">Don't have an account? <a href="Register.html">Register here</a></p>
+    </div>
+
+    <script src="../spaceBg.js"></script>
+    <script src="Login.js"></script>
+</body>
+
+</html>

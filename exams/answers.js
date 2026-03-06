@@ -5,7 +5,7 @@ let finalAnswers = JSON.parse(localStorage.getItem("finalAnswers")) || {};
 let subject = "history";
 let examData = {};
 
-fetch("/questions.json")
+fetch("../questions.json")
   .then((res) => res.json())
   .then((data) => {
     examData = data[subject];

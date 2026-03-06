@@ -6,18 +6,20 @@ let mrkBtn = document.getElementById("mrk-btn");
 let submitBtn = document.getElementById("submit-btn");
 
 let examData = {};
-let subject = "history";
 
-let answers = JSON.parse(localStorage.getItem("answers")) || {};
-let markedQuestions = JSON.parse(localStorage.getItem("marked")) || [];
-let examFinished = localStorage.getItem("examFinished") === "true";
-let totalQuestions;
+let answers =
+  JSON.parse(localStorage.getItem(`answersOf${currentSubject}`)) || {};
+let markedQuestions =
+  JSON.parse(localStorage.getItem(`markedOf${currentSubject}`)) || [];
+let isExamFinished =
+  localStorage.getItem(`isExamFinishedOf${currentSubject}`) === "true";
+let numberOfQuestions;
 
-fetch("/questions.json")
+fetch("../questions.json")
   .then((data) => data.json())
   .then((data) => {
     examData = data;
-    totalQuestions = examData[subject].length;
+    numberOfQuestions = examData[currentSubject].length;
 
     questionBoxes();
     showQuestion(currentIndex);
@@ -29,13 +31,13 @@ fetch("/questions.json")
 
 function showQuestion(index) {
   questions.innerHTML = "";
-  let currentQuestion = examData[subject][index];
+  let currentQuestion = examData[currentSubject][index];
 
   let questionDiv = document.createElement("div");
   questionDiv.className = "questionHead";
 
   let title = document.createElement("h2");
-  title.textContent = `Q.${index + 1} (${currentQuestion.question})?`;
+  title.textContent = `Q${index + 1}: (${currentQuestion.question})?`;
   questionDiv.appendChild(title);
 
   currentQuestion.answers.forEach((ans) => {
@@ -53,15 +55,21 @@ function showQuestion(index) {
 
     if (answers[index] == ans) input.checked = true;
 
-    if (examFinished) {
+    if (isExamFinished) {
       input.disabled = true;
     }
     input.addEventListener("change", () => {
       answers[index] = ans;
-      localStorage.setItem("answers", JSON.stringify(answers));
+      localStorage.setItem(
+        `answersOf${currentSubject}`,
+        JSON.stringify(answers),
+      );
 
       markedQuestions = markedQuestions.filter((q) => q != index);
-      localStorage.setItem("marked", JSON.stringify(markedQuestions));
+      localStorage.setItem(
+        `markedOf${currentSubject}`,
+        JSON.stringify(markedQuestions),
+      );
 
       updateActiveBox();
       checkSubmit();
@@ -76,7 +84,7 @@ function showQuestion(index) {
 function questionBoxes() {
   const qBoxesDiv = document.querySelector(".question-boxes");
   qBoxesDiv.innerHTML = "";
-  for (let i = 0; i < totalQuestions; i++) {
+  for (let i = 0; i < numberOfQuestions; i++) {
     let box = document.createElement("div");
     box.className = "q-box";
     box.textContent = i + 1;
@@ -119,14 +127,14 @@ function BoxEvents() {
 
 function updateButtons() {
   prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === totalQuestions - 1;
-  if (examFinished) {
+  nextBtn.disabled = currentIndex === numberOfQuestions - 1;
+  if (isExamFinished) {
     mrkBtn.disabled = true;
   }
 }
 function checkSubmit() {
-  const allAnswered = Object.keys(answers).length === totalQuestions;
-  if (!examFinished) {
+  const allAnswered = Object.keys(answers).length === numberOfQuestions;
+  if (!isExamFinished) {
     submitBtn.disabled = !allAnswered;
   }
 }
@@ -141,7 +149,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-  if (currentIndex < totalQuestions - 1) {
+  if (currentIndex < numberOfQuestions - 1) {
     currentIndex++;
     showQuestion(currentIndex);
     updateActiveBox();
@@ -150,17 +158,20 @@ nextBtn.addEventListener("click", () => {
 });
 
 mrkBtn.addEventListener("click", () => {
-  if (examFinished) return;
+  if (isExamFinished) return;
   if (answers[currentIndex]) {
     delete answers[currentIndex];
-    localStorage.setItem("answers", JSON.stringify(answers));
+    localStorage.setItem(`answersOf${currentSubject}`, JSON.stringify(answers));
   }
   if (markedQuestions.includes(currentIndex)) {
     markedQuestions = markedQuestions.filter((q) => q != currentIndex);
   } else {
     markedQuestions.push(currentIndex);
   }
-  localStorage.setItem("marked", JSON.stringify(markedQuestions));
+  localStorage.setItem(
+    `markedOf${currentSubject}`,
+    JSON.stringify(markedQuestions),
+  );
 
   updateActiveBox();
   checkSubmit();
@@ -170,99 +181,13 @@ function submitExam() {
   document
     .querySelectorAll("input[type=radio]")
     .forEach((input) => (input.disabled = true));
-  localStorage.setItem("finalAnswers", JSON.stringify(answers));
-  localStorage.setItem("examFinished", "true");
-  localStorage.removeItem("examEndTime");
+  localStorage.setItem(
+    `finalAnswersOf${currentSubject}`,
+    JSON.stringify(answers),
+  );
+  localStorage.setItem(`isExamFinishedOf${currentSubject}`, "true");
+  localStorage.removeItem(`examEndTimeOf${currentSubject}`);
   window.location.href = "answers.html";
 }
 
 submitBtn.addEventListener("click", submitExam);
-
-const timerCanvas = document.createElement("canvas");
-timerCanvas.id = "timerCanvas";
-timerCanvas.width = 150;
-timerCanvas.height = 150;
-timerCanvas.style.position = "fixed";
-timerCanvas.style.top = "25px";
-timerCanvas.style.left = "25px";
-timerCanvas.style.zIndex = "10";
-document.body.appendChild(timerCanvas);
-
-const ctx = timerCanvas.getContext("2d");
-
-let examDuration = 2 * 60 * 1000;
-let endTime = localStorage.getItem("examEndTime");
-
-if (!endTime) {
-  endTime = Date.now() + examDuration;
-  localStorage.setItem("examEndTime", endTime);
-}
-
-function drawCircularTimer() {
-  let remaining = endTime - Date.now();
-
-  if (remaining <= 0) {
-    remaining = 0;
-    examFinished = true;
-    clearInterval(countdown);
-    submitExam();
-  }
-
-  const totalSeconds = examDuration / 1000;
-  const remainingSeconds = remaining / 1000;
-
-  const centerX = timerCanvas.width / 2;
-  const centerY = timerCanvas.height / 2;
-
-  let radius = 45;
-
-  ctx.clearRect(0, 0, timerCanvas.width, timerCanvas.height);
-
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "rgba(0,0,0,0.3)";
-  ctx.fill();
-
-  const startAngle = -Math.PI / 2;
-  const endAngle =
-    startAngle +
-    2 * Math.PI * ((totalSeconds - remainingSeconds) / totalSeconds);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-
-  let color = "#00ff00";
-  let text_color = "rgb(56, 202, 210)";
-  if (remainingSeconds <= 60) {
-    color = "#efac01";
-    text_color = "#efac01";
-  }
-
-  if (remainingSeconds <= 30) {
-    color = "#ff0000";
-    text_color = "#ff0000";
-  }
-  ctx.fillStyle = text_color;
-
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 6;
-  ctx.stroke();
-
-  const minutes = Math.floor(remainingSeconds / 60);
-  let seconds = Math.floor(remainingSeconds % 60);
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-  let fontSize = 18;
-
-  if (remainingSeconds <= 30) {
-    fontSize = 18 + Math.sin(Date.now() / 280) * 6;
-  }
-  ctx.font = `${fontSize}px Arial`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(`${minutes}:${seconds}`, centerX, centerY);
-
-  if (examFinished) {
-    timerCanvas.style.display = "none";
-  }
-}
-
-countdown = setInterval(drawCircularTimer, 1000);
