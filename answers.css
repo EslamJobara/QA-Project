@@ -65,3 +65,27 @@ h1 {
 .answer.user {
   border: 3px solid #0ff;
 }
+.no-answer {
+  color: #ff8000;
+  background: rgba(255, 204, 0, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  font-size: 14px;
+}
+.right-answer {
+  color: #00de0f;
+  background: rgba(255, 204, 0, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  font-size: 14px;
+}
+.wrong-answer {
+  color: #ff0000;
+  background: rgba(255, 204, 0, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+  font-size: 14px;
+}

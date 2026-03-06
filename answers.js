@@ -39,11 +39,13 @@ fetch("/questions.json")
 
         questionDiv.appendChild(ansDiv);
       });
-
-      if (finalAnswers[i] === q.rightanswer) {
+      if (finalAnswers[i] === undefined) {
+        title.innerHTML = `Q${i + 1}: ${q.question} <span class="no-answer">No Answer</span>`;
+      } else if (finalAnswers[i] === q.rightanswer) {
+        title.innerHTML = `Q${i + 1}: ${q.question} <span class="right-answer">Right Answer</span>`;
         score++;
       } else {
-        title.style.color = "#ff3b3b";
+        title.innerHTML = `Q${i + 1}: ${q.question} <span class="wrong-answer">Wrong Answer</span>`;
       }
 
       container.appendChild(questionDiv);

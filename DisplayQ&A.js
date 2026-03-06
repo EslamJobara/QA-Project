@@ -233,13 +233,13 @@ function drawCircularTimer() {
   let color = "#00ff00";
   let text_color = "rgb(56, 202, 210)";
   if (remainingSeconds <= 60) {
-    color = "#ffaa00";
-    text_color = "#ffaa00";
+    color = "#efac01";
+    text_color = "#efac01";
   }
 
   if (remainingSeconds <= 30) {
-    color = "#ff3b3b";
-    text_color = "#ff3b3b";
+    color = "#ff0000";
+    text_color = "#ff0000";
   }
   ctx.fillStyle = text_color;
 
