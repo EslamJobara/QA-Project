@@ -3,7 +3,8 @@ const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
 function validateLogin(email) {
   if (!emailPattern.test(email)) {
     console.log("You must enter a valid email");
-    return false
+    alert("You must enter a valid email");
+    return false;
   } else {
     return true;
   }
@@ -27,4 +28,3 @@ function onLogin() {
     }
   }
 }
-
