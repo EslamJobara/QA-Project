@@ -3,28 +3,23 @@ const namePattern = /^[a-zA-Z]+$/;
 
 function validateRegister(firstName, lastName, email, password, rePassword) {
   if (!emailPattern.test(email)) {
-    console.log("You must enter a valid email");
-    alert("You must enter a valid email");
+    showCustomAlert("Invalid Email", "You must enter a valid email address.");
     return false;
   }
   if (!namePattern.test(firstName)) {
-    console.log("You must enter a valid first name");
-    alert("First name must contain only letters");
+    showCustomAlert("Invalid Name", "First name must contain only letters.");
     return false;
   }
   if (!namePattern.test(lastName)) {
-    console.log("You must enter a valid last name");
-    alert("Last name must contain only letters");
+    showCustomAlert("Invalid Name", "Last name must contain only letters.");
     return false;
   }
   if (!password || !rePassword) {
-    console.log("Password fields cannot be empty");
-    alert("Password fields cannot be empty");
+    showCustomAlert("Empty Fields", "Password fields cannot be empty.");
     return false;
   }
   if (password !== rePassword) {
-    console.log("Passwords do not match");
-    alert("Passwords do not match!");
+    showCustomAlert("Mismatch", "Passwords do not match!");
     return false;
   }
   return true;
@@ -39,7 +34,9 @@ function createUser(firstName, lastName, email, password) {
   let users = JSON.parse(localStorage.getItem("users")) || [];
   users.push(newUser);
   localStorage.setItem("users", JSON.stringify(users));
-  alert("Register completed");
+  showCustomAlert("Success", "Account registered successfully!", false, () => {
+    window.location.href = "Login.html";
+  });
 }
 
 function onRegister() {

@@ -9,13 +9,16 @@
   <link rel="stylesheet" href="spaceBg.css">
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 
 <body>
   <!---------------------------------------->
   <!--------------- canvas ----------------->
   <!---------------------------------------->
-  <canvas id="space"></canvas>
+  <canvas id="space" style="position: fixed; inset: 0; z-index: -2; pointer-events: none;"></canvas>
+  <div id="canvas-container" style="position: fixed; inset: 0; z-index: -1; pointer-events: none;"></div>
   
   <!---------------------------------------->
   <!--------------- navbar ----------------->
@@ -23,10 +26,7 @@
   <nav>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="exams/history.html">history</a>
-      <a href="exams/math.html">math</a>
-      <a href="exams/art.html">art</a>
-      <a href="ShowAllResults.html">Results</a>
+
     </div>
     <div class="nav-buttons">
       <a href="auth/Login.html" class="btn-login">Login</a>
@@ -43,6 +43,7 @@
   <!-------------- js files ---------------->
   <!---------------------------------------->
   <script src="spaceBg.js"></script>
+  <script src="brain.js"></script>
   <script src="index.js"></script>
 </body>
 

@@ -1,7 +1,7 @@
 let container = document.getElementById("answersContainer");
 let scoreBox = document.getElementById("score");
 
-let currentSubject = localStorage.getItem("currentSubject") || "history";
+let currentSubject = localStorage.getItem("currentSubject");
 const finalAnswers =
   JSON.parse(localStorage.getItem(`finalAnswersOf${currentSubject}`)) || {};
 let subject = "history";

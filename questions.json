@@ -7,95 +7,68 @@
     { "question": "3*7", "answers": [20, 21, 19, 18], "rightanswer": 21 },
     { "question": "9+6", "answers": [14, 15, 16, 17], "rightanswer": 15 },
     { "question": "12-5", "answers": [5, 6, 7, 8], "rightanswer": 7 },
-    { "question": "8/4", "answers": [1, 2, 3, 4], "rightanswer": 2 }
+    { "question": "8/4", "answers": [1, 2, 3, 4], "rightanswer": 2 },
+    { "question": "15-6", "answers": [8, 9, 10, 11], "rightanswer": 9 },
+    { "question": "4*4", "answers": [14, 15, 16, 17], "rightanswer": 16 }
   ],
   "history": [
-    {
-      "question": "Who discovered America?",
-      "answers": ["Columbus", "Magellan", "Vespucci", "Cook"],
-      "rightanswer": "Columbus"
-    },
-    {
-      "question": "When did World War II end?",
-      "answers": [1942, 1945, 1948, 1950],
-      "rightanswer": 1945
-    },
-    {
-      "question": "Who was the first President of USA?",
-      "answers": ["Lincoln", "Washington", "Jefferson", "Adams"],
-      "rightanswer": "Washington"
-    },
-    {
-      "question": "The Great Wall is in which country?",
-      "answers": ["China", "India", "Japan", "Korea"],
-      "rightanswer": "China"
-    },
-    {
-      "question": "Fall of Roman Empire happened in?",
-      "answers": [410, 476, 500, 395],
-      "rightanswer": 476
-    },
-    {
-      "question": "Who wrote the Magna Carta?",
-      "answers": ["King John", "Henry VIII", "Richard III", "Edward I"],
-      "rightanswer": "King John"
-    },
-    {
-      "question": "French Revolution began in?",
-      "answers": [1789, 1776, 1804, 1799],
-      "rightanswer": 1789
-    },
-    {
-      "question": "Who was Cleopatra?",
-      "answers": [
-        "Egyptian Queen",
-        "Roman Empress",
-        "Greek Philosopher",
-        "Persian Princess"
-      ],
-      "rightanswer": "Egyptian Queen"
-    }
+    { "question": "Who discovered America?", "answers": ["Columbus", "Magellan", "Vespucci", "Cook"], "rightanswer": "Columbus" },
+    { "question": "When did World War II end?", "answers": [1942, 1945, 1948, 1950], "rightanswer": 1945 },
+    { "question": "Who was the first President of USA?", "answers": ["Lincoln", "Washington", "Jefferson", "Adams"], "rightanswer": "Washington" },
+    { "question": "The Great Wall is in which country?", "answers": ["China", "India", "Japan", "Korea"], "rightanswer": "China" },
+    { "question": "Fall of Roman Empire happened in?", "answers": [410, 476, 500, 395], "rightanswer": 476 },
+    { "question": "Who wrote the Magna Carta?", "answers": ["King John", "Henry VIII", "Richard III", "Edward I"], "rightanswer": "King John" },
+    { "question": "French Revolution began in?", "answers": [1789, 1776, 1804, 1799], "rightanswer": 1789 },
+    { "question": "Who was Cleopatra?", "answers": ["Egyptian Queen", "Roman Empress", "Greek Philosopher", "Persian Princess"], "rightanswer": "Egyptian Queen" },
+    { "question": "In what year did the Titanic sink?", "answers": [1905, 1912, 1920, 1898], "rightanswer": 1912 },
+    { "question": "Who was known as the Iron Lady?", "answers": ["Queen Victoria", "Margaret Thatcher", "Marie Antoinette", "Joan of Arc"], "rightanswer": "Margaret Thatcher" }
   ],
   "art": [
-    {
-      "question": "Who painted the Mona Lisa?",
-      "answers": ["Da Vinci", "Michelangelo", "Raphael", "Picasso"],
-      "rightanswer": "Da Vinci"
-    },
-    {
-      "question": "Starry Night is by?",
-      "answers": ["Van Gogh", "Monet", "Rembrandt", "Dali"],
-      "rightanswer": "Van Gogh"
-    },
-    {
-      "question": "The sculpture 'David' is by?",
-      "answers": ["Michelangelo", "Donatello", "Bernini", "Rodin"],
-      "rightanswer": "Michelangelo"
-    },
-    {
-      "question": "Impression, Sunrise was painted by?",
-      "answers": ["Monet", "Manet", "Cézanne", "Degas"],
-      "rightanswer": "Monet"
-    },
-    {
-      "question": "Guernica is painted by?",
-      "answers": ["Picasso", "Dali", "Klimt", "Matisse"],
-      "rightanswer": "Picasso"
-    },
-    {
-      "question": "The Persistence of Memory is by?",
-      "answers": ["Dali", "Picasso", "Van Gogh", "Warhol"],
-      "rightanswer": "Dali"
-    },
-    {
-      "question": "Water Lilies series belongs to?",
-      "answers": ["Monet", "Renoir", "Degas", "Cézanne"],
-      "rightanswer": "Monet"
-    },
-    {
-      "question": "The Last Supper was painted in?",
-      "answers": [1490, 1495, 1500, 1505],
-      "rightanswer": 1495
-    }
+    { "question": "What are the primary colors?", "answers": ["Red, Yellow, Blue", "Green, Orange, Purple", "Black, White, Gray", "Cyan, Magenta, Yellow"], "rightanswer": "Red, Yellow, Blue" },
+    { "question": "Mixing red and yellow creates?", "answers": ["Green", "Purple", "Orange", "Brown"], "rightanswer": "Orange" },
+    { "question": "A painting made on a wall or ceiling is called a?", "answers": ["Fresco", "Mosaic", "Collage", "Mural"], "rightanswer": "Mural" },
+    { "question": "What tool is used to mix paint colors?", "answers": ["Easel", "Palette", "Canvas", "Brush"], "rightanswer": "Palette" },
+    { "question": "Which medium uses water-soluble pigments?", "answers": ["Oil", "Acrylic", "Charcoal", "Watercolor"], "rightanswer": "Watercolor" },
+    { "question": "What do you call an artwork made of pieces of paper or fabric?", "answers": ["Mosaic", "Collage", "Fresco", "Origami"], "rightanswer": "Collage" },
+    { "question": "The illusion of depth on a flat surface is called?", "answers": ["Texture", "Harmony", "Perspective", "Contrast"], "rightanswer": "Perspective" },
+    { "question": "Which of these is a cool color?", "answers": ["Red", "Orange", "Blue", "Yellow"], "rightanswer": "Blue" },
+    { "question": "Baking clay to make it hard is done in a?", "answers": ["Oven", "Furnace", "Kiln", "Stove"], "rightanswer": "Kiln" },
+    { "question": "Thick application of paint leaving visible brush strokes?", "answers": ["Impasto", "Glazing", "Scumbling", "Washes"], "rightanswer": "Impasto" }
+  ],
+  "sports": [
+    { "question": "How many players are on a soccer team on the field?", "answers": [9, 10, 11, 12], "rightanswer": 11 },
+    { "question": "In standard basketball, how many points for a free throw?", "answers": [1, 2, 3, 4], "rightanswer": 1 },
+    { "question": "Which sport uses a shuttlecock?", "answers": ["Tennis", "Table Tennis", "Squash", "Badminton"], "rightanswer": "Badminton" },
+    { "question": "How long is a marathon?", "answers": ["20 miles", "26.2 miles", "30 kilometers", "40 kilometers"], "rightanswer": "26.2 miles" },
+    { "question": "What is the maximum score in a single game of bowling?", "answers": [200, 250, 300, 400], "rightanswer": 300 },
+    { "question": "Which punch is NOT a standard boxing punch?", "answers": ["Jab", "Hook", "Uppercut", "Roundhouse"], "rightanswer": "Roundhouse" },
+    { "question": "In golf, what is one stroke under par called?", "answers": ["Eagle", "Birdie", "Bogey", "Albatross"], "rightanswer": "Birdie" },
+    { "question": "How many innings are in a standard baseball game?", "answers": [7, 8, 9, 10], "rightanswer": 9 },
+    { "question": "Which country hosts the Wimbledon tennis tournament?", "answers": ["USA", "France", "Australia", "UK"], "rightanswer": "UK" },
+    { "question": "Which swimming stroke is swam on the back?", "answers": ["Freestyle", "Breaststroke", "Butterfly", "Backstroke"], "rightanswer": "Backstroke" }
+  ],
+  "science": [
+    { "question": "What is the chemical symbol for Water?", "answers": ["CO2", "H2O", "O2", "NaCl"], "rightanswer": "H2O" },
+    { "question": "Which planet is known as the Red Planet?", "answers": ["Venus", "Mars", "Jupiter", "Saturn"], "rightanswer": "Mars" },
+    { "question": "What gas do plants absorb from the atmosphere?", "answers": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "rightanswer": "Carbon Dioxide" },
+    { "question": "What is the hardest natural substance on Earth?", "answers": ["Gold", "Iron", "Diamond", "Quartz"], "rightanswer": "Diamond" },
+    { "question": "How many bones are in the adult human body?", "answers": [180, 206, 215, 250], "rightanswer": 206 },
+    { "question": "What is the center of an atom called?", "answers": ["Electron", "Proton", "Nucleus", "Molecule"], "rightanswer": "Nucleus" },
+    { "question": "Which of these is a renewable energy source?", "answers": ["Coal", "Natural Gas", "Solar", "Petroleum"], "rightanswer": "Solar" },
+    { "question": "What force keeps planets in orbit around the Sun?", "answers": ["Magnetism", "Friction", "Gravity", "Inertia"], "rightanswer": "Gravity" },
+    { "question": "What instrument is used to see very small objects?", "answers": ["Telescope", "Microscope", "Stethoscope", "Periscope"], "rightanswer": "Microscope" },
+    { "question": "What is the boiling point of water in Celsius?", "answers": [50, 90, 100, 120], "rightanswer": 100 }
+  ],
+  "literature": [
+    { "question": "Who wrote 'Romeo and Juliet'?", "answers": ["Charles Dickens", "William Shakespeare", "Mark Twain", "Homer"], "rightanswer": "William Shakespeare" },
+    { "question": "What is the name of the wizard in 'The Hobbit'?", "answers": ["Dumbledore", "Merlin", "Gandalf", "Saruman"], "rightanswer": "Gandalf" },
+    { "question": "Which author created the character Sherlock Holmes?", "answers": ["Agatha Christie", "Arthur Conan Doyle", "Edgar Allan Poe", "J.K. Rowling"], "rightanswer": "Arthur Conan Doyle" },
+    { "question": "In '1984', who is watching you?", "answers": ["The Government", "The Police", "Big Brother", "The Party"], "rightanswer": "Big Brother" },
+    { "question": "Who wrote 'Pride and Prejudice'?", "answers": ["Emily Brontë", "Jane Austen", "Mary Shelley", "Virginia Woolf"], "rightanswer": "Jane Austen" },
+    { "question": "What is a stanza in poetry?", "answers": ["A type of meter", "A rhyme scheme", "A group of lines", "A spoken word"], "rightanswer": "A group of lines" },
+    { "question": "Which book begins with 'Call me Ishmael'?", "answers": ["Moby-Dick", "The Great Gatsby", "1984", "Catch-22"], "rightanswer": "Moby-Dick" },
+    { "question": "What is the pen name of Samuel Langhorne Clemens?", "answers": ["Dr. Seuss", "George Orwell", "Mark Twain", "Lewis Carroll"], "rightanswer": "Mark Twain" },
+    { "question": "Who wrote the play 'Hamlet'?", "answers": ["Christopher Marlowe", "William Shakespeare", "John Webster", "Ben Jonson"], "rightanswer": "William Shakespeare" },
+    { "question": "What genre of literature is based on real facts?", "answers": ["Fiction", "Fantasy", "Non-fiction", "Poetry"], "rightanswer": "Non-fiction" }
   ]
 }

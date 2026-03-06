@@ -19,6 +19,17 @@ let isExamFinished =
 fetch("../questions.json")
   .then((data) => data.json())
   .then((data) => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      const warning = document.getElementById("subjectWarning");
+      warning.textContent = "You must be logged in to take an exam!";
+      warning.style.display = "block";
+      setTimeout(() => {
+        window.location.href = "../auth/Login.html";
+      }, 2000);
+      return;
+    }
+
     if (!localStorage.getItem("currentSubject")) {
       const warning = document.getElementById("subjectWarning");
       warning.style.display = "block";
@@ -188,7 +199,7 @@ mrkBtn.addEventListener("click", () => {
   checkSubmit();
 });
 
-function submitExam() {
+function forceSubmit() {
   document
     .querySelectorAll("input[type=radio]")
     .forEach((input) => (input.disabled = true));
@@ -199,6 +210,17 @@ function submitExam() {
   localStorage.setItem(`isExamFinishedOf${currentSubject}`, "true");
   localStorage.removeItem(`examEndTimeOf${currentSubject}`);
   window.location.href = "answers.html";
+}
+
+function submitExam() {
+  showCustomAlert(
+    "Are you sure?",
+    "Do you want to submit your exam now?",
+    true,
+    () => {
+      forceSubmit();
+    }
+  );
 }
 
 submitBtn.addEventListener("click", submitExam);

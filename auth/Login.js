@@ -1,9 +1,8 @@
-const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function validateLogin(email) {
   if (!emailPattern.test(email)) {
-    console.log("You must enter a valid email");
-    alert("You must enter a valid email");
+    showCustomAlert("Invalid Email", "You must enter a valid email address.");
     return false;
   } else {
     return true;
@@ -21,10 +20,12 @@ function onLogin() {
     });
     console.log(user);
     if (user) {
-      console.log("login success");
       localStorage.setItem("currentUser", JSON.stringify(user));
+      showCustomAlert("Welcome Back!", "Login successful.", false, () => {
+        window.location.href = "../index.html";
+      });
     } else {
-      console.log("Login Failed");
+      showCustomAlert("Login Failed", "Invalid email or password.");
     }
   }
 }
