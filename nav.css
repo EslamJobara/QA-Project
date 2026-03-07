@@ -1,18 +1,13 @@
 nav {
-  background: #1e1e2fb0;
+  background: --bg-card;
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px var(--shadow-cyan);
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
 }
 
 .nav-links a {
@@ -23,15 +18,18 @@ nav {
 }
 
 .nav-links a:hover {
-  color: var(--primary-green);
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  color: var(--hover-cyan);
+  text-shadow: 0 0 10px var(--shadow-cyan);
 }
 
 .nav-buttons {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
-
+.nav-buttons span {
+  text-shadow: 0 0 15px #00ffff;
+}
 .btn-login,
 .btn-register {
   padding: 10px 25px;
@@ -49,15 +47,16 @@ nav {
 
 .btn-login:hover {
   background-color: var(--primary-cyan);
-  color: #000;
+  color: var(--text-black);
 }
 
 .btn-register {
   background-color: var(--primary-cyan);
-  color: #000;
+  color: var(--text-black);
 }
 
 .btn-register:hover {
-  background-color: var(--primary-green);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  background-color: transparent;
+  color: var(--primary-cyan);
+  border: 2px solid var(--primary-cyan);
 }

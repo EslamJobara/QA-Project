@@ -17,28 +17,44 @@ body {
   position: relative;
 }
 
-/* ---- Welcome / Not Logged In ---- */
 .welcome-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px;
   animation: fadeIn 1s ease-in;
 }
 
 .welcome-container h1 {
   color: var(--primary-cyan);
-  font-size: 3.5rem;
+  font-size: 48px;
   text-shadow: 0 0 15px var(--primary-cyan);
-  margin-bottom: 10px;
 }
 
 .welcome-container p {
-  font-size: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  font-size: 24px;
+  max-width: 700px;
+  margin-top: 55vh;
+  text-align: center;
 }
 
-/* ---- Results Cards ---- */
+.welcome-container a {
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--primary-cyan);
+  text-shadow: 0 0 15px var(--primary-cyan);
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-cyan);
+  transition: 0.3s;
+}
+
+.welcome-container a:hover {
+  background-color: var(--primary-cyan);
+  color: #000;
+}
 #resultsContainer {
   position: fixed;
   inset: 0;
@@ -64,11 +80,10 @@ body {
   color: #fff;
   text-transform: capitalize;
   margin-top: 0;
-  font-size: 1.3rem;
 }
 
 .result-card .score {
-  font-size: 2.5rem;
+  font-size: 36px;
   font-weight: bold;
   margin: 10px 0;
   text-shadow: 0 0 10px var(--shadow-cyan);
@@ -78,12 +93,10 @@ body {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* ---- Analysis Box ---- */
 #analysisContainer {
   position: relative;
-  margin-top: 50vh;
-  width: 60%;
-  max-width: 700px;
+  margin-top: 53vh;
+  width: 49%;
   margin-left: auto;
   margin-right: auto;
   pointer-events: none;
@@ -91,21 +104,22 @@ body {
 }
 
 .analysis-box {
+  text-align: center;
   background: var(--bg-dark);
   border-radius: 15px;
   padding: 15px 25px;
-  box-shadow: 0 0 20px --shadow-cyan;
+  box-shadow: 0 0 20px var(--shadow-cyan);
 }
 
 .analysis-box h4 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 .analysis-box p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 @keyframes fadeIn {

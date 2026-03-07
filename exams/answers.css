@@ -89,3 +89,20 @@ h1 {
   margin-left: 6px;
   font-size: 14px;
 }
+.home-btn {
+  text-align: center;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--primary-cyan);
+  border: 2px solid var(--primary-cyan);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background-color: var(--shadow-cyan);
+  color: var(--text-white);
+}

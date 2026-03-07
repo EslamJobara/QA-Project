@@ -31,7 +31,7 @@ function drawCircularTimer() {
       false,
       () => {
         forceSubmit();
-      }
+      },
     );
   }
 
@@ -80,8 +80,6 @@ function drawCircularTimer() {
   let fontSize = 18;
 
   if (remainingSeconds <= 30) {
-    // Smoother pulse effect: use Math.abs with Math.sin to bound the scale
-    // It creates a smooth pulsing heartbeat effect between 18px and 24px
     const pulse = Math.abs(Math.sin(Date.now() / 300));
     fontSize = 18 + pulse * 6;
   }
