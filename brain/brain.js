@@ -56,7 +56,7 @@ function initBrain() {
 
   const loader = new THREE.GLTFLoader();
   loader.load(
-    "./scene.gltf",
+    "brain/scene.gltf",
     function (gltf) {
       const model = gltf.scene;
 

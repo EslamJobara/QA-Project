@@ -1,5 +1,5 @@
 .header {
-  background: --bg-card;
+  background: var(--bg-card);
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;

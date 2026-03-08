@@ -16,12 +16,6 @@ canvas {
   z-index: -2;
 }
 
-.brain-canvas-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
 
 canvas #canvas-container {
   position: fixed;
@@ -38,11 +32,7 @@ canvas #canvas-container {
 }
 
 @media (max-width: 768px) {
-  .brain-canvas-wrapper,
-  #canvas-container {
-    display: none;
-  }
-
+  /* .brain-canvas-wrapper */
   #canvas-container {
     display: none;
   }

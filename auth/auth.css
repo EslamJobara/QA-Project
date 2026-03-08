@@ -16,25 +16,7 @@ body {
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
 }
 
-.container {
-  max-width: 400px;
-  width: 100%;
-  z-index: 2;
-  position: relative;
-  background: #1e1e2fb0;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-}
-
 .auth-wrapper__title {
-  text-align: center;
-  font-size: 1.7rem;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-}
-
-h1 {
   text-align: center;
   font-size: 1.7rem;
   margin-bottom: 30px;
@@ -47,28 +29,12 @@ h1 {
   font-size: 1rem;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-
 .auth-wrapper__input {
   width: 100%;
   margin-bottom: 20px;
 }
 
-input {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
 .auth-wrapper__btn {
-  width: 100%;
-  font-size: 1.1rem;
-}
-
-button {
   width: 100%;
   font-size: 1.1rem;
 }
@@ -80,84 +46,38 @@ button {
   font-size: 0.95rem;
 }
 
-.link-text {
-  text-align: center;
-  margin-top: 20px;
-  color: #fff;
-  font-size: 0.95rem;
-}
-
 .auth-wrapper__footer a:hover {
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-.link-text a:hover {
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
-
 @media (max-width: 768px) {
-  .auth-wrapper,
-  .container {
+  .auth-wrapper {
     padding: 30px 25px;
   }
 
-  .container {
-    padding: 30px 25px;
-  }
-
-  .auth-wrapper__title,
-  h1 {
+  .auth-wrapper__title {
     font-size: 1.6rem;
   }
 
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .auth-wrapper__label,
-  label {
+  .auth-wrapper__label {
     font-size: 0.9rem;
   }
 
-  label {
-    font-size: 0.9rem;
-  }
-
-  .auth-wrapper__btn,
-  button {
-    font-size: 1rem;
-  }
-
-  button {
+  .auth-wrapper__btn {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .auth-wrapper,
-  .container {
+  .auth-wrapper {
     padding: 25px 20px;
   }
 
-  .container {
-    padding: 25px 20px;
-  }
-
-  .auth-wrapper__title,
-  h1 {
+  .auth-wrapper__title {
     font-size: 1.4rem;
   }
 
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  .auth-wrapper__footer,
-  .link-text {
-    font-size: 0.85rem;
-  }
-
-  .link-text {
+  .auth-wrapper__footer {
     font-size: 0.85rem;
   }
 }

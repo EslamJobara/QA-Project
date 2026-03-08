@@ -17,14 +17,14 @@
 
     <div class="auth-wrapper">
         <h1 class="auth-wrapper__title">Login</h1>
-        <form>
+        <form onsubmit="event.preventDefault(); onLogin();">
             <label for="email" class="auth-wrapper__label">Email</label>
             <input type="email" name="email" id="email" class="auth-wrapper__input" required>
 
             <label for="password" class="auth-wrapper__label">Password</label>
             <input type="password" name="password" id="password" class="auth-wrapper__input" required>
 
-            <button type="button" class="auth-wrapper__btn" onclick="onLogin()">Login</button>
+            <button type="submit" class="auth-wrapper__btn">Login</button>
         </form>
         <p class="auth-wrapper__footer">Don't have an account? <a href="Register.html">Register here</a></p>
     </div>

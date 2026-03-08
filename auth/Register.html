@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../img/brain-iocn.ico" />
     <link rel="stylesheet" href="../spaceBg.css">
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="auth.css">
 </head>
 
@@ -18,7 +19,7 @@
     <canvas id="space" class="space-canvas"></canvas>
     <div class="auth-wrapper">
         <h1 class="auth-wrapper__title">Register</h1>
-        <form>
+        <form onsubmit="event.preventDefault(); onRegister();">
             <label for="email" class="auth-wrapper__label">Email</label>
             <input type="email" name="email" id="email" class="auth-wrapper__input" required>
 
@@ -34,7 +35,7 @@
             <label for="rePassword" class="auth-wrapper__label">Re-enter Password</label>
             <input type="password" name="rePassword" id="rePassword" class="auth-wrapper__input" required>
 
-            <button type="submit" class="auth-wrapper__btn" onclick="onRegister()">Register</button>
+            <button type="submit" class="auth-wrapper__btn">Register</button>
         </form>
         <p class="auth-wrapper__footer">Already have an account? <a href="Login.html">Login here</a></p>
     </div>

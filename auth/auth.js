@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <h1 class="welcome__title">Welcome back, ${currentUser.name.split(" ")[0]}!</h1>
       </div>
       <div id="resultsContainer" class="results"></div>
-      <div id="analysisContainer" class="analysis"></div>
     `;
 
     loadUserResults();
