@@ -60,7 +60,7 @@ function showQuestion(index) {
   questionDiv.className = "questionHead";
 
   let title = document.createElement("h2");
-  title.textContent = `Q${index + 1}: (${currentQuestion.question})?`;
+  title.textContent = `Q${index + 1}: ${currentQuestion.question}?`;
   questionDiv.appendChild(title);
 
   currentQuestion.answers.forEach((ans) => {
@@ -221,7 +221,7 @@ function submitExam() {
     true,
     () => {
       forceSubmit();
-    }
+    },
   );
 }
 
