@@ -63,23 +63,23 @@ function loadUserResults() {
           const message = percentage >= 50 ? "Great Job!" : "Needs Improvement";
 
           cardContent = `
-            <h3>${subject}</h3>
-            <div class="score" style="color:${gradeColor}">${percentage}%</div>
+            <h3 class="results__card-title">${subject}</h3>
+            <div class="results__card-score" style="color:${gradeColor}">${percentage}%</div>
             <p>Score: ${score} / ${data[subject].length}</p>
             <p style="color:${gradeColor}; font-weight:bold;">${message}</p>
           `;
         } else {
           gradeColor = "#0ff";
           cardContent = `
-            <h3>${subject}</h3>
-            <div class="score" style="color:${gradeColor}">Not Taken</div>
+            <h3 class="results__card-title">${subject}</h3>
+            <div class="results__card-score" style="color:${gradeColor}">Not Taken</div>
             <p>Click to Start</p>
           `;
         }
 
         resultsContainer.innerHTML += `
           <div 
-            class="result-card"
+            class="results__card"
             style="top: ${meta.top}; ${positionStyle}; border: 2px solid ${gradeColor}; box-shadow: 0 0 20px ${gradeColor}40;"
             onmouseover="if(window.rotateBrainTo) window.rotateBrainTo('${meta.lobe}');"
             onmouseout="if(window.rotateBrainTo) window.rotateBrainTo(null);"
@@ -93,7 +93,7 @@ function loadUserResults() {
       if (completedExams > 0) renderPersonalityAnalysis(scores, completedExams);
       else
         document.getElementById("analysisContainer").innerHTML = `
-        <div class="analysis-box" style="border:1px dashed #0ff;">
+        <div class="analysis__content" style="border:1px dashed #0ff;">
           <p>Take your first test to reveal your Cognitive Personality Analysis!</p>
         </div>
       `;
@@ -138,7 +138,7 @@ function renderPersonalityAnalysis(scores, completedExams) {
       : `<p style="color: #00ff99; font-size:0.85rem;">✔ Fully mapped cognitive profile based on 6 subjects.</p>`;
 
   analysisContainer.innerHTML = `
-    <div class="analysis-box" style="border:1px solid ${color}; box-shadow:0 0 20px ${color}40;">
+    <div class="analysis__content" style="border:1px solid ${color}; box-shadow:0 0 20px ${color}40;">
       <h4 style="color:${color}">${dominantTrait}</h4>
       <p>${description}</p>
       <p style="font-size:0.8rem; color:#777;"><strong>Scientific Basis:</strong> Howard Gardner's Theory of Multiple Intelligences & Hemispheric Lateralization principles.</p>

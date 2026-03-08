@@ -4,28 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Questions</title>
+  <title>AstroMind - History Exam</title>
+  <link rel="icon" type="image/x-icon" href="../img/brain-iocn.ico" />
   <link rel="stylesheet" href="../spaceBg.css" />
   <link rel="stylesheet" href="../main.css" />
   <link rel="stylesheet" href="DisplayQ&A.css" />
 </head>
 
 <body>
-  <canvas id="space"></canvas>
-  <!-- <canvas id="timerCanvas" width="100" height="100" </canvas> -->
-    <div class="quiz-container">
-      <a href="../index.html" class="back-btn">
+  <canvas id="space" class="space-canvas"></canvas>
+    <div class="quiz">
+      <a href="../index.html" class="quiz__back-link">
         < Back to Home</a>
-          <h2 id="timer"></h2>
-          <div id="subjectWarning" class="warning-banner">
+          <h2 id="timer" class="quiz__timer"></h2>
+          <div id="subjectWarning" class="warning">
             Please select a subject first!
           </div>
           <div class="questions"></div>
-          <div class="question-boxes"></div>
-          <div class="btn">
+          <div class="quiz__nav-boxes"></div>
+          <div class="quiz__actions">
             <button id="Prev-btn" disabled>Previous</button>
             <button id="nxt-btn">Next</button>
-            <button id="mrk-btn">Mark</button>
+            <button id="mrk-btn" class="quiz__btn--mark">Mark</button>
             <button id="submit-btn">submit</button>
           </div>
     </div>

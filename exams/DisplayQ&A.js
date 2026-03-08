@@ -65,7 +65,7 @@ function showQuestion(index) {
 
   currentQuestion.answers.forEach((ans) => {
     let answerDiv = document.createElement("div");
-    answerDiv.className = "answer";
+    answerDiv.className = "quiz__answer";
 
     answerDiv.innerHTML = `
 <label>
@@ -105,41 +105,41 @@ function showQuestion(index) {
 }
 
 function questionBoxes() {
-  const qBoxesDiv = document.querySelector(".question-boxes");
+  const qBoxesDiv = document.querySelector(".quiz__nav-boxes");
   qBoxesDiv.innerHTML = "";
   for (let i = 0; i < numberOfQuestions; i++) {
     let box = document.createElement("div");
-    box.className = "q-box";
+    box.className = "quiz__nav-box";
     box.textContent = i + 1;
     qBoxesDiv.appendChild(box);
   }
 }
 
 function updateActiveBox() {
-  let boxes = document.querySelectorAll(".q-box");
+  let boxes = document.querySelectorAll(".quiz__nav-box");
 
   boxes.forEach((box, i) => {
-    box.classList.remove("active", "answered", "marked");
+    box.classList.remove("quiz__nav-box--active", "quiz__nav-box--answered", "quiz__nav-box--marked");
 
     if (answers[i]) {
-      box.classList.add("answered");
+      box.classList.add("quiz__nav-box--answered");
     }
 
     if (markedQuestions.includes(i)) {
-      box.classList.add("marked");
+      box.classList.add("quiz__nav-box--marked");
     }
   });
-  boxes[currentIndex].classList.add("active");
+  boxes[currentIndex].classList.add("quiz__nav-box--active");
 }
 
 function BoxEvents() {
-  const container = document.querySelector(".question-boxes");
+  const container = document.querySelector(".quiz__nav-boxes");
 
   container.addEventListener("click", (e) => {
-    const box = e.target.closest(".q-box");
+    const box = e.target.closest(".quiz__nav-box");
     if (!box) return;
 
-    const boxes = [...container.querySelectorAll(".q-box")];
+    const boxes = [...container.querySelectorAll(".quiz__nav-box")];
     currentIndex = boxes.indexOf(box);
 
     showQuestion(currentIndex);

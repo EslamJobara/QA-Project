@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>AstroMind - Login</title>
+    <link rel="icon" type="image/x-icon" href="../img/brain-iocn.ico" />
     <link rel="stylesheet" href="../spaceBg.css">
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../nav.css">
@@ -12,22 +13,20 @@
 </head>
 
 <body>
-    <canvas id="space"></canvas>
-    <!-- <div id="subjectWarning" class="warning-banner"></div> -->
+    <canvas id="space" class="space-canvas"></canvas>
 
-
-    <div class="container">
-        <h1>Login</h1>
+    <div class="auth-wrapper">
+        <h1 class="auth-wrapper__title">Login</h1>
         <form>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
+            <label for="email" class="auth-wrapper__label">Email</label>
+            <input type="email" name="email" id="email" class="auth-wrapper__input" required>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
+            <label for="password" class="auth-wrapper__label">Password</label>
+            <input type="password" name="password" id="password" class="auth-wrapper__input" required>
 
-            <button type="submit" onclick="onLogin()">Login</button>
+            <button type="button" class="auth-wrapper__btn" onclick="onLogin()">Login</button>
         </form>
-        <p class="link-text">Don't have an account? <a href="Register.html">Register here</a></p>
+        <p class="auth-wrapper__footer">Don't have an account? <a href="Register.html">Register here</a></p>
     </div>
 
     <script src="../spaceBg.js"></script>

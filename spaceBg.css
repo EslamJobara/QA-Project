@@ -1,19 +1,48 @@
 body {
   background: black;
 }
+
+.space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
 canvas {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -2;
 }
+
+.brain-canvas-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
 canvas #canvas-container {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
+
+#canvas-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
+  .brain-canvas-wrapper,
+  #canvas-container {
+    display: none;
+  }
+
   #canvas-container {
     display: none;
   }

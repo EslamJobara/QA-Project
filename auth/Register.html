@@ -4,38 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>AstroMind - Register</title>
+    <link rel="icon" type="image/x-icon" href="../img/brain-iocn.ico" />
     <link rel="stylesheet" href="../spaceBg.css">
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="auth.css">
 </head>
 
 <body>
-    <div id="subjectWarning" class="warning-banner">
+    <div id="subjectWarning" class="warning">
         
     </div>
-    <canvas id="space"></canvas>
-    <div class="container">
-        <h1>Register</h1>
+    <canvas id="space" class="space-canvas"></canvas>
+    <div class="auth-wrapper">
+        <h1 class="auth-wrapper__title">Register</h1>
         <form>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
+            <label for="email" class="auth-wrapper__label">Email</label>
+            <input type="email" name="email" id="email" class="auth-wrapper__input" required>
 
-            <label for="fName">First Name</label>
-            <input type="text" name="fName" id="fName" required>
+            <label for="fName" class="auth-wrapper__label">First Name</label>
+            <input type="text" name="fName" id="fName" class="auth-wrapper__input" required>
 
-            <label for="lName">Last Name</label>
-            <input type="text" name="lName" id="lName" required>
+            <label for="lName" class="auth-wrapper__label">Last Name</label>
+            <input type="text" name="lName" id="lName" class="auth-wrapper__input" required>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
+            <label for="password" class="auth-wrapper__label">Password</label>
+            <input type="password" name="password" id="password" class="auth-wrapper__input" required>
 
-            <label for="rePassword">Re-enter Password</label>
-            <input type="password" name="rePassword" id="rePassword" required>
+            <label for="rePassword" class="auth-wrapper__label">Re-enter Password</label>
+            <input type="password" name="rePassword" id="rePassword" class="auth-wrapper__input" required>
 
-            <button type="submit" onclick="onRegister()">Register</button>
+            <button type="submit" class="auth-wrapper__btn" onclick="onRegister()">Register</button>
         </form>
-        <p class="link-text">Already have an account? <a href="Login.html">Login here</a></p>
+        <p class="auth-wrapper__footer">Already have an account? <a href="Login.html">Login here</a></p>
     </div>
 
     <script src="../spaceBg.js"></script>

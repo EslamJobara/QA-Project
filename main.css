@@ -1,14 +1,9 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Cinzel:wght@400..900&family=Marcellus&family=Smooch+Sans:wght@100..900&display=swap');
 
-body {
-  font-family: "Arial", sans-serif;
-  color: var(--text-white);
-  min-height: 100vh;
-  overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -21,12 +16,36 @@ body {
   --bg-input: #222233b7;
   --text-white: #fff;
   --text-black: #000;
+  
+  --font-heading: "Bungee", sans-serif;
+  --font-body: "Marcellus", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1,
 h2,
 h3 {
+  font-family: var(--font-heading);
   color: var(--primary-cyan);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.05rem;
 }
 
 a {
@@ -39,7 +58,8 @@ a:hover {
   color: var(--primary-green);
 }
 
-button {
+.btn {
+  font-family: var(--font-body);
   background-color: var(--primary-cyan);
   color: var(--text-black);
   border: none;
@@ -50,6 +70,19 @@ button {
   transition: 0.2s all;
 }
 
+button {
+  font-family: var(--font-body);
+  background-color: var(--primary-cyan);
+  color: var(--text-black);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.btn:hover,
 button:hover {
   background-color: var(--primary-green);
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
@@ -59,12 +92,14 @@ button:active {
   transform: scale(0.98);
 }
 
-button:disabled {
+button:disabled,
+.btn--disabled {
   background-color: #555;
   cursor: not-allowed;
   opacity: 0.6;
 }
 
+.input-field,
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -77,10 +112,23 @@ input[type="password"] {
   transition: 0.2s all;
 }
 
+.input-field:focus,
 input:focus {
   outline: none;
   border-color: var(--hover-cyan);
   box-shadow: 0 0 10px var(--shadow-cyan);
+}
+
+.modal {
+  background-color: var(--bg-card);
+  border: 2px solid var(--primary-cyan);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  max-width: 400px;
+  width: 90%;
+  animation: slideDown 0.3s ease;
 }
 
 .custom-modal {
@@ -95,8 +143,18 @@ input:focus {
   animation: slideDown 0.3s ease;
 }
 
+.modal__title {
+  margin-bottom: 15px;
+}
+
 .custom-modal h2 {
   margin-bottom: 15px;
+}
+
+.modal__text {
+  margin-bottom: 25px;
+  color: #ccc;
+  line-height: 1.5;
 }
 
 .custom-modal p {
@@ -105,15 +163,32 @@ input:focus {
   line-height: 1.5;
 }
 
+.modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
 .custom-modal-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
+.modal__btn--confirm {
+  background-color: var(--primary-green);
+  color: var(--text-black);
+}
+
 .custom-modal .confirm-btn {
   background-color: var(--primary-green);
   color: var(--text-black);
+}
+
+.modal__btn--cancel {
+  background-color: transparent;
+  border: 2px solid #ff4444;
+  color: #ff4444;
 }
 
 .custom-modal .cancel-btn {
@@ -122,11 +197,27 @@ input:focus {
   color: #ff4444;
 }
 
+.modal__btn--cancel:hover,
 .custom-modal .cancel-btn:hover {
   background-color: #ff4444;
   color: var(--text-white);
   box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
 .custom-modal-overlay {
   position: fixed;
   top: 0;
@@ -161,41 +252,21 @@ input:focus {
   }
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 20px;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-  }
-
-  button {
-    padding: 8px 16px;
-    font-size: 16px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  button {
-    padding: 7px 14px;
-    font-size: 16px;
-  }
+.warning {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff3333b0;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  display: none;
+  text-align: center;
 }
 
 .warning-banner {
@@ -213,4 +284,44 @@ input:focus {
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
   display: none;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  button,
+  .btn {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  .input-field {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  button,
+  .btn {
+    padding: 7px 14px;
+    font-size: 16px;
+  }
 }
