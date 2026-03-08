@@ -8,7 +8,18 @@ const finalAnswers =
 fetch("../questions.json")
   .then((res) => res.json())
   .then((data) => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      const warning = document.getElementById("subjectWarning");
+      warning.textContent = "You must be logged in to show the result!";
+      warning.style.display = "block";
+      setTimeout(() => {
+        window.location.href = "../auth/Login.html";
+      }, 2000);
+      return;
+    }
     const subjectData = data[currentSubject];
+
     let score = 0;
 
     subjectData.forEach((q, i) => {
