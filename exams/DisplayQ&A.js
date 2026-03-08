@@ -17,6 +17,16 @@ let markedQuestions =
 let isExamFinished =
   localStorage.getItem(`isExamFinishedOf${currentSubject}`) === "true";
 
+window.history.pushState(null, null, window.location.href);
+window.onpopstate = function() {
+  window.history.pushState(null, null, window.location.href);
+};
+
+window.addEventListener('beforeunload', function(e) {
+  e.preventDefault();
+  e.returnValue = '';
+});
+
 fetch("../questions.json")
   .then((data) => data.json())
   .then((data) => {

@@ -191,6 +191,7 @@ body {
 }
 
 @media (max-width: 768px) {
+
   .welcome__title {
     font-size: 1.7rem;
   }
@@ -232,8 +233,11 @@ body {
 
   .analysis,
   #analysisContainer {
+    position: relative;
     width: 90%;
     margin-top: 20px;
+    bottom: auto;
+    left: auto;
   }
 
   .analysis__content h4 {

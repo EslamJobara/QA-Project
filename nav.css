@@ -104,14 +104,11 @@
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: row;
-    background-color: var(--bg-dark);
     padding: 10px 20px;
-    gap: 10px;
   }
 
   .header__nav {
-    gap: 15px;
+    gap: 10px;
   }
 
   .header__logo-img {
@@ -123,29 +120,23 @@
   }
 
   .header__nav a {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .header__actions {
-    gap: 10px;
+    gap: 8px;
   }
 
   .header__btn--login,
   .header__btn--register {
-    padding: 8px 20px;
-    font-size: 14px;
+    padding: 6px 15px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    flex-direction: row;
-    background-color: var(--bg-dark);
-    padding: 8px 15px;
-  }
-
-  .header__nav {
-    gap: 10px;
+    padding: 8px 10px;
   }
 
   .header__logo-img {
@@ -153,16 +144,16 @@
   }
 
   .header__brand {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .header__nav a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .header__btn--login,
   .header__btn--register {
-    padding: 6px 15px;
-    font-size: 13px;
+    padding: 5px 10px;
+    font-size: 11px;
   }
 }
