@@ -2,9 +2,9 @@ const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const currentUser = localStorage.getItem("currentUser");
 (function () {
   if (currentUser) {
-    const warning = document.getElementById("subjectWarning");
-    warning.textContent = "You are already logged in";
-    warning.style.display = "block";
+    // const warning = document.getElementById("subjectWarning");
+    // warning.textContent = "You are already logged in";
+    // warning.style.display = "block";
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 2000);
