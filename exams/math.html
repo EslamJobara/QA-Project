@@ -1,43 +1,42 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Questions</title>
-    <link rel="stylesheet" href="../spaceBg.css" />
-    <link rel="stylesheet" href="../main.css" />
-    <link rel="stylesheet" href="DisplayQ&A.css" />
-  </head>
-  <body>
-    <canvas id="space"></canvas>
-    <canvas
-      id="timerCanvas"
-      width="100"
-      height="100"
-      style="position: fixed; top: 20px; left: 20px; z-index: 10"
-    ></canvas>
 
-    <div class="quiz-container">
-      <a href="../index.html" class="back-btn">< Back to Home</a>
-      <h2 id="timer"></h2>
-      <div id="subjectWarning" class="warning-banner">
-        Please select a subject first!
-      </div>
-      <div class="questions"></div>
-      <div class="question-boxes"></div>
-      <div class="btn">
-        <button id="Prev-btn" disabled>Previous</button>
-        <button id="nxt-btn">Next</button>
-        <button id="mrk-btn">Mark</button>
-        <button id="submit-btn">submit</button>
-      </div>
-    </div>
-    <script>
-      localStorage.setItem("currentSubject", "math");
-    </script>
-    <script src="../customAlert.js"></script>
-    <script src="DisplayQ&A.js"></script>
-    <script src="../spaceBg.js"></script>
-    <script src="../timer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions</title>
+  <link rel="stylesheet" href="../spaceBg.css" />
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="DisplayQ&A.css" />
+</head>
+
+<body>
+  <canvas id="space"></canvas>
+  <!-- <canvas id="timerCanvas" width="100" height="100"></canvas> -->
+
+  <div class="quiz-container">
+    <a href="../index.html" class="back-btn">
+      < Back to Home</a>
+        <h2 id="timer"></h2>
+        <div id="subjectWarning" class="warning-banner">
+          Please select a subject first!
+        </div>
+        <div class="questions"></div>
+        <div class="question-boxes"></div>
+        <div class="btn">
+          <button id="Prev-btn" disabled>Previous</button>
+          <button id="nxt-btn">Next</button>
+          <button id="mrk-btn">Mark</button>
+          <button id="submit-btn">submit</button>
+        </div>
+  </div>
+  <script>
+    localStorage.setItem("currentSubject", "math");
+  </script>
+  <script src="../customAlert.js"></script>
+  <script src="DisplayQ&A.js"></script>
+  <script src="../spaceBg.js"></script>
+  <script src="../timer.js"></script>
+</body>
+
 </html>
