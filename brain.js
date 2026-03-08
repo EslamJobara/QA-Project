@@ -59,7 +59,9 @@ function initBrain() {
     function (gltf) {
       const model = gltf.scene;
 
-      model.scale.set(5.5, 5.5, 5.5);
+      const isMobile = window.innerWidth <= 768;
+      const scale = isMobile ? 3.5 : 5.5;
+      model.scale.set(scale, scale, scale);
       model.position.set(0, -2, 0);
 
       brainGroup.add(model);
@@ -83,10 +85,14 @@ function onMouseMove(event) {
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
-
   camera.updateProjectionMatrix();
-
   renderer.setSize(window.innerWidth, window.innerHeight);
+  
+  if (brainGroup.children.length > 0) {
+    const isMobile = window.innerWidth <= 768;
+    const scale = isMobile ? 3.5 : 5.5;
+    brainGroup.children[0].scale.set(scale, scale, scale);
+  }
 }
 
 function animate() {

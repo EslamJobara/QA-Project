@@ -106,3 +106,54 @@ h1 {
   background-color: var(--shadow-cyan);
   color: var(--text-white);
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .score {
+    font-size: 1.3rem;
+  }
+
+  .question {
+    padding: 15px;
+  }
+
+  .question h3 {
+    font-size: 16px;
+  }
+
+  .answer {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .home-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .score {
+    font-size: 1.1rem;
+  }
+
+  .question h3 {
+    font-size: 14px;
+  }
+
+  .answer {
+    font-size: 13px;
+  }
+}

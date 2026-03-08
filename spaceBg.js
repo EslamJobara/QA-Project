@@ -5,16 +5,28 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let stars = [];
-for (let i = 0; i < 200; i++) {
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 3,
-    vy: Math.random() * 0.5 + 0.2,
-    opacity: Math.random(),
-    delta: Math.random() * 0.02 + 0.01,
-  });
+
+function initStars() {
+  stars = [];
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 3,
+      vy: Math.random() * 0.5 + 0.2,
+      opacity: Math.random(),
+      delta: Math.random() * 0.02 + 0.01,
+    });
+  }
 }
+
+initStars();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initStars();
+});
 function drawStars() {
   satrCtx.clearRect(0, 0, canvas.width, canvas.height);
   stars.forEach((s) => {

@@ -6,6 +6,7 @@ let mrkBtn = document.getElementById("mrk-btn");
 let submitBtn = document.getElementById("submit-btn");
 
 let examData = {};
+let numberOfQuestions = 0;
 
 let currentSubject = localStorage.getItem("currentSubject");
 
@@ -195,6 +196,7 @@ mrkBtn.addEventListener("click", () => {
     JSON.stringify(markedQuestions),
   );
 
+  showQuestion(currentIndex);
   updateActiveBox();
   checkSubmit();
 });

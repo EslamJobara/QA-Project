@@ -4,8 +4,6 @@ let scoreBox = document.getElementById("score");
 let currentSubject = localStorage.getItem("currentSubject");
 const finalAnswers =
   JSON.parse(localStorage.getItem(`finalAnswersOf${currentSubject}`)) || {};
-let subject = "history";
-let examData = {};
 
 fetch("../questions.json")
   .then((res) => res.json())

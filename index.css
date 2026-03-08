@@ -95,7 +95,7 @@ body {
 
 #analysisContainer {
   position: relative;
-  margin-top: 53vh;
+  margin-top: 55vh;
   width: 49%;
   margin-left: auto;
   margin-right: auto;
@@ -128,5 +128,118 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .welcome-container h1 {
+    font-size: 2.5vw;
+  }
+
+  .welcome-container p {
+    font-size: 1.5vw;
+  }
+
+  .result-card {
+    width: 160px;
+    padding: 12px;
+  }
+
+  .result-card h3 {
+    font-size: 14px;
+  }
+
+  .result-card .score {
+    font-size: 24px;
+  }
+
+  .result-card p {
+    font-size: 12px;
+  }
+
+  #analysisContainer {
+    width: 55%;
+    margin-top: 56vh;
+  }
+
+  .analysis-box {
+    padding: 12px 20px;
+  }
+
+  .analysis-box h4 {
+    font-size: 16px;
+  }
+
+  .analysis-box p {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-container h1 {
+    font-size: 32px;
+  }
+
+  .welcome-container p {
+    font-size: 18px;
+    margin-top: 40vh;
+  }
+
+  .welcome-container a {
+    font-size: 18px;
+    padding: 8px 20px;
+  }
+
+  #resultsContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .result-card {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .result-card:hover {
+    transform: scale(1.05) !important;
+  }
+
+  #analysisContainer {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .analysis-box h4 {
+    font-size: 18px;
+  }
+
+  .analysis-box p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-container h1 {
+    font-size: 24px;
+  }
+
+  .welcome-container p {
+    font-size: 16px;
+  }
+
+  .result-card {
+    width: 95%;
   }
 }

@@ -12,6 +12,7 @@ const ctx = timerCanvas.getContext("2d");
 
 let examDuration = 2 * 60 * 1000;
 let endTime = localStorage.getItem(`examEndTimeOf${currentSubject}`);
+let countdown;
 
 if (!endTime) {
   endTime = Date.now() + examDuration;
@@ -23,7 +24,6 @@ function drawCircularTimer() {
 
   if (remaining <= 0) {
     remaining = 0;
-    examFinished = true;
     clearInterval(countdown);
     showCustomAlert(
       "Time is up!",

@@ -60,3 +60,43 @@ nav {
   color: var(--primary-cyan);
   border: 2px solid var(--primary-cyan);
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    background-color: var(--bg-dark);
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .nav-buttons {
+    gap: 10px;
+  }
+
+  .btn-login,
+  .btn-register {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 8px 15px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .btn-login,
+  .btn-register {
+    padding: 6px 15px;
+    font-size: 13px;
+  }
+}
