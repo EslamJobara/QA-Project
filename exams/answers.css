@@ -9,6 +9,7 @@ body {
 
 .container {
   max-width: 900px;
+  width: 100%;
   margin: auto;
   z-index: 2;
   position: relative;
@@ -50,6 +51,7 @@ h1 {
   cursor: default;
   transition: 0.2s all;
   color: #fff;
+  width: 100%;
 }
 
 .answer.correct {
@@ -65,6 +67,7 @@ h1 {
 .answer.user {
   border: 3px solid #0ff;
 }
+
 .no-answer {
   color: #ff8000;
   background: rgba(255, 204, 0, 0.15);
@@ -73,6 +76,7 @@ h1 {
   margin-left: 6px;
   font-size: 14px;
 }
+
 .right-answer {
   color: #00de0f;
   background: rgba(255, 204, 0, 0.15);
@@ -81,6 +85,7 @@ h1 {
   margin-left: 6px;
   font-size: 14px;
 }
+
 .wrong-answer {
   color: #ff0000;
   background: rgba(255, 204, 0, 0.15);
@@ -89,9 +94,11 @@ h1 {
   margin-left: 6px;
   font-size: 14px;
 }
+
 .home-btn {
+  display: inline-block;
   text-align: center;
-  margin: 20px;
+  margin: 20px auto;
   padding: 10px 20px;
   background-color: transparent;
   color: var(--primary-cyan);
@@ -108,16 +115,20 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .container {
+  body {
     padding: 15px;
   }
 
+  .container {
+    padding: 10px;
+  }
+
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .score {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .question {
@@ -125,34 +136,52 @@ h1 {
   }
 
   .question h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .answer {
-    padding: 10px;
-    font-size: 16px;
+    padding: 11px;
+    font-size: 15px;
   }
 
   .home-btn {
-    padding: 8px 15px;
-    font-size: 16px;
+    padding: 8px 16px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
   h1 {
-    font-size: 3.5rem;
+    font-size: 1.7rem;
   }
 
   .score {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
+  }
+
+  .question {
+    padding: 12px;
   }
 
   .question h3 {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .answer {
-    font-size: 20px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .home-btn {
+    width: 100%;
+    font-size: 14px;
   }
 }
