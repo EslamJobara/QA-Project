@@ -157,7 +157,6 @@ body {
   color: var(--text-white);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   body {
     padding-top: 20px;

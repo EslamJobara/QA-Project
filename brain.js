@@ -2,6 +2,7 @@ let scene, camera, renderer, brainGroup;
 let mouseX = 0,
   mouseY = 0;
 let targetRotation = null;
+const isMobile = window.innerWidth <= 768;
 
 window.rotateBrainTo = function (part) {
   const rotations = {
@@ -59,7 +60,6 @@ function initBrain() {
     function (gltf) {
       const model = gltf.scene;
 
-      const isMobile = window.innerWidth <= 768;
       const scale = isMobile ? 3.5 : 5.5;
       model.scale.set(scale, scale, scale);
       model.position.set(0, -2, 0);
@@ -87,7 +87,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  
+
   if (brainGroup.children.length > 0) {
     const isMobile = window.innerWidth <= 768;
     const scale = isMobile ? 3.5 : 5.5;

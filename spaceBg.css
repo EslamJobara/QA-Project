@@ -13,3 +13,8 @@ canvas #canvas-container {
   z-index: -1;
   pointer-events: none;
 }
+@media (max-width: 768px) {
+  #canvas-container {
+    display: none;
+  }
+}
