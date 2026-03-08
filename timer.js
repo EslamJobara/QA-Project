@@ -4,7 +4,8 @@ timerCanvas.width = 150;
 timerCanvas.height = 150;
 timerCanvas.style.position = "fixed";
 timerCanvas.style.top = "25px";
-timerCanvas.style.left = "25px";
+timerCanvas.style.left = "auto";
+timerCanvas.style.right = "25px";
 timerCanvas.style.zIndex = "10";
 document.body.appendChild(timerCanvas);
 
