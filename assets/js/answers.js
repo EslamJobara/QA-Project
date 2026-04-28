@@ -5,7 +5,7 @@ let currentSubject = localStorage.getItem("currentSubject");
 const finalAnswers =
   JSON.parse(localStorage.getItem(`finalAnswersOf${currentSubject}`)) || {};
 
-fetch("../questions.json")
+fetch("../../assets/data/questions.json")
   .then((res) => res.json())
   .then((data) => {
     const currentUser = localStorage.getItem("currentUser");

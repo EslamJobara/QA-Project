@@ -21,13 +21,13 @@ function loadUserResults() {
   window.handleExamClick = (subject, isFinished) => {
     if (isFinished) {
       localStorage.setItem("currentSubject", subject);
-      window.location.href = "exams/answers.html";
+      window.location.href = "pages/exams/answers.html";
     } else {
-      window.location.href = `exams/${subject}.html`;
+      window.location.href = `pages/exams/${subject}.html`;
     }
   };
 
-  fetch("questions.json")
+  fetch("assets/data/questions.json")
     .then((res) => res.json())
     .then((data) => {
       let completedExams = 0;

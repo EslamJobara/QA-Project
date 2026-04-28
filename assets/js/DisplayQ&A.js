@@ -27,7 +27,7 @@ window.addEventListener('beforeunload', function(e) {
   e.returnValue = '';
 });
 
-fetch("../questions.json")
+fetch("../../assets/data/questions.json")
   .then((data) => data.json())
   .then((data) => {
     const currentUser = localStorage.getItem("currentUser");

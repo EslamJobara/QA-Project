@@ -3,7 +3,7 @@ const currentUser = localStorage.getItem("currentUser");
 (function () {
   if (currentUser) {
     setTimeout(() => {
-      window.location.href = "../index.html";
+      window.location.href = "../../index.html";
     }, 2000);
     return;
   }
@@ -31,7 +31,7 @@ function onLogin() {
     if (user) {
       localStorage.setItem("currentUser", JSON.stringify(user));
       showCustomAlert("Welcome Back!", "Login successful.", false, () => {
-        window.location.href = "../index.html";
+        window.location.href = "../../index.html";
       });
     } else {
       showCustomAlert("Login Failed", "Invalid email or password.");
